@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks":
+    [
+        {
+            "label":   "Собрать цель",
+            "group":   "build",
+            "type":    "shell",
+            "command": "make",
+            "args":
+            [
+                "SHELL=cmd",
+                "target=${input:target}",
+                "config=${command:cpptools.activeConfigName}"
+            ],
+            "presentation":
+            {
+                "panel": "shared",
+                "clear":  true
+            },
+            "icon":
+            {
+                "id":    "archive",
+                "color": "terminal.ansiCyan"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label":   "Удалить конфигурацию",
+            "group":   "none",
+            "type":    "shell",
+            "command": "make",
+            "args":
+            [
+                "SHELL=cmd",
+                "clean",
+                "config=${command:cpptools.activeConfigName}"
+            ],
+            "presentation":
+            {
+                "panel": "shared",
+                "clear":  true
+            },
+            "icon":
+            {
+                "id":    "flame",
+                "color": "terminal.ansiYellow"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs":
+    [
+        {
+            "id":          "target",
+            "description": "Цель сборки",
+            "type":        "pickString",
+            "options":
+            [
+                "bin/program.exe"
+            ]
+        }
+    ]
+}

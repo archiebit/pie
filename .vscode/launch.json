@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations":
+    [
+        {
+            "name":    "'C++' Отладка",
+            "type":    "cppdbg",
+            "request": "launch",
+            "cwd":     "${workspaceFolder}\\${command:cpptools.activeConfigName}\\out\\bin",
+            "program": "${workspaceFolder}\\${command:cpptools.activeConfigName}\\out\\bin\\${input:target}",
+            "MIMode":  "gdb",
+            "setupCommands":
+            [
+                { "text": "-enable-pretty-printing" },
+                { "text": "-gdb-set disassembly-flavor intel" }
+            ]
+        }
+    ],
+    "inputs":
+    [
+        {
+            "id":          "target",
+            "description": "Цель отладки",
+            "type":        "pickString",
+            "options":
+            [
+                "program.exe"
+            ]
+        }
+    ]
+}
